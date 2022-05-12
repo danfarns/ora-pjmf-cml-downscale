@@ -65,7 +65,7 @@ NYI
 ## Linux (Ubuntu)
 NYI
 
-# Instructions (After Installation)
+# Instructions (After Docker Installation)
 ## Building a New Docker - CDP Runtime Image
 Begin this section after confirming that `docker run hello-world` has successfully displayed the hello message and information on your screen/terminal.  
 1. Clone this repo or create a new folder that will contain your `Dockerfile`.
