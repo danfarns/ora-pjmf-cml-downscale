@@ -141,10 +141,10 @@ This assumes you have already started an ML Workspace. If not, please provision 
 
 ### Existing Project
 1. Go to your Project's Project Setting Page.
-1. Click on the "Runtime/Engine" Tab. It will look similar to the following image ![Project Settings - Runtime/Engine](./readme-img/existing-project-settings-rte?raw=true "Project Settings - Runtime/Engine")
+1. Click on the "Runtime/Engine" Tab. It will look similar to the following image ![Project Settings - Runtime/Engine](./readme-img/existing-project-settings-rte.png?raw=true "Project Settings - Runtime/Engine")
 1. Click "Add Runtime"
 1. You will need to find your image using the "Editor", "Kernel", and "Edition" dropdown boxes.
 1. If you find your image, your "Runtime Image" information should match what you set above when pushing to your docker repository.
 1. Click "Submit" to add the runtime.
-1. Now, when you start a new session, you will have access to this runtime. See image below for an example. ![New Session](./readme-img/new-session?raw=true "New Session")
+1. Now, when you start a new session, you will have access to this runtime. See image below for an example. ![New Session](./readme-img/new-session.png?raw=true "New Session")
 
