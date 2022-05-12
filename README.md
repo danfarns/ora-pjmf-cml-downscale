@@ -114,6 +114,7 @@ Begin this section after confirming that `docker run hello-world` has successful
 ## Pushing to a Public Docker Repository
 Please note I am using https://hub.docker.com/ and you will need to find the comparable command if using another repository.
 
+1. Open your terminal if you have closed it
 1. Log into Docker Hub with `docker login`
 	1. It will prompt you for your username and password.
 1. After successfully logging in, run `docker push {YOUR_USER_NAME_HERE}/{YOUR_REPO_HERE}:{YOUR_TAGS}`.
