@@ -155,6 +155,7 @@ This guide used an m5.2xlarge with no GPU support.
 1. If you are using the advanced setup:
     1. You need to select the "Editor", "Kernel", and "Edition" your new docker image was.
 	1. Click "Add Runtime"
+1. Click "Create Project".	
 1. Now, when you start a new session, you will have access to this runtime. See image below for an example. ![New Session](./readme-img/new-session.png?raw=true "New Session")
 
 
