@@ -130,7 +130,7 @@ If you are not using Docker Hub,
 
 ## Adding your new image to the Runtime Catalog
 This assumes you have already started an ML Workspace. If not, please provision one that has enough CPU and RAM.  
-This guide used an m5.2xlarge with no GPU support.
+This guide used an m5.2xlarge (8 CPUs, 32 GiB) with no GPU support.
 
 
 1. Log in to your Cloudera ML Workspace. ((Offical Instructions)[https://docs.cloudera.com/machine-learning/cloud/runtimes/topics/ml-registering-customized-runtimes.html])
