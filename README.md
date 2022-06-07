@@ -5,6 +5,8 @@ If you are constantly using the same R(install.packages) or Python(pip) items, y
 
 This file will go through the steps manually (read: no automated Docker building or pulling directly from GitHub.com) so you can customize at your own pace. If you are constantly updating your Dockerfile, you may want to consider building in some automated building.
 
+Please note that Edition names and Versions, if following this repository exactly, may be different from those pictured below.
+
 # Information From
 * https://ondemand.cloudera.com/courses/course-v1:CDP+CML+200221/
 * https://docs.cloudera.com/machine-learning/cloud/runtimes/topics/ml-creating-a-customized-runtimes-image.html
