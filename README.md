@@ -1,9 +1,11 @@
-# ora-pjmf-cml-downscale
+# ORA/PJMF Cloudera Machine Learning - Docker Creation (using R-downscale as an example)
 An R starter template with the (Downscale)[https://cran.r-project.org/web/packages/downscale/index.html] package already available using an enhanced Dockerfile for McGovern using CDP in a ML Workspace / Project.  
 
 If you are constantly using the same R(install.packages) or Python(pip) items, you may want to consider just having an image that already has these items installed for you.
 
 This file will go through the steps manually (read: no automated Docker building or pulling directly from GitHub.com) so you can customize at your own pace. If you are constantly updating your Dockerfile, you may want to consider building in some automated building.
+
+Please note that Edition names and Versions, if following this repository exactly, may be different from those pictured below.
 
 # Information From
 * https://ondemand.cloudera.com/courses/course-v1:CDP+CML+200221/
@@ -42,6 +44,9 @@ For this you need the following:
 1. Access to Cloudera Machine Learning 
     - Ability to "Add Runtime" in the "Runtime Catalog" Page
 	- IF YOU DO NOT SEE THIS OPTION, ARE UNABLE TO ADD A NEW RUNTIME, OR DO NOT SEE "SITE ADMINISTRATION" OPTION, CONTACT YOUR ADMINISTRATOR FOR ADDITIONAL HELP AND GUIDANCE.
+1. A publically accessible Docker Repository URL. This guide uses https://hub.docker.com/ for its registry. This was chosen because it was free, was the easiest one for us to set up, and publically accessible when using the free tier.
+    - If you are using a local docker registry, then please make sure that your local docker repository is accessible through the internet.
+	- If you are using another docker registry, such as Amazon's ECR, Google's Container Register, JFrog, Quay, or another Registry, you will need to follow their guides on how to push and pull your docker repositories.
 
 # Optional
 The following can be substituted out.
@@ -112,7 +117,8 @@ Begin this section after confirming that `docker run hello-world` has successful
 	1. `docker rm {CONTAINER ID}`
 
 ## Pushing to a Public Docker Repository
-Please note I am using https://hub.docker.com/ and you will need to find the comparable command if using another repository.
+Please note I am using https://hub.docker.com/ and you will need to find the comparable command if using another repository.  
+If you are not using Docker Hub,
 
 1. Open your terminal if you have closed it
 1. Log into Docker Hub with `docker login`
@@ -123,7 +129,9 @@ Please note I am using https://hub.docker.com/ and you will need to find the com
 1. Optionally run `docker logout` after you pushed successfully if you want.
 
 ## Adding your new image to the Runtime Catalog
-This assumes you have already started an ML Workspace. If not, please provision one that has enough CPU and RAM.
+This assumes you have already started an ML Workspace. If not, please provision one that has enough CPU and RAM.  
+This guide used an m5.2xlarge (8 CPUs, 32 GiB) with no GPU support.
+
 
 1. Log in to your Cloudera ML Workspace. ((Offical Instructions)[https://docs.cloudera.com/machine-learning/cloud/runtimes/topics/ml-registering-customized-runtimes.html])
 1. It should look similar to this: ![Runtime Catalog Interface](./readme-img/runtime-catalog-start.png?raw=true "Runtime Catalog Interface - Before Image")
@@ -138,7 +146,18 @@ This assumes you have already started an ML Workspace. If not, please provision 
 
 ## Using the New Image
 ### New Project In ML Workspace
-1. If you did the previous step correct, then when you create a new project, this runtime should be immediately available in the "Runtime Setup" section. Easy!
+1. After you have added a new image to your runtime catalog, click on "Projects".
+1. Fill out the form to set up the new project you are making until the "Runtime Setup" Section.
+1. If you use the basic set up:
+    1. select the "Kernel" you made your docker image for. 
+        - Refer to the previous section / Runtime Catalog page if you need a reminder what Kernel your docker image is for.
+        - If you did the previous section, [Adding your new image to the Runtime Catalog], correctly, this runtime will appear along side the standard included runtimes (as well as any other runtimes you have added for this "Kernel")
+1. If you are using the advanced setup:
+    1. You need to select the "Editor", "Kernel", and "Edition" your new docker image was.
+	1. Click "Add Runtime"
+1. Click "Create Project".	
+1. Now, when you start a new session, you will have access to this runtime. See image below for an example. ![New Session](./readme-img/new-session.png?raw=true "New Session")
+
 
 ### Existing Project
 1. Go to your Project's Project Setting Page.
